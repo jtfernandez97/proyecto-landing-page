@@ -1,0 +1,262 @@
+/* FUENTES
+    font-family: "Nova Mono", monospace;
+    font-family: "M PLUS Code Latin", monospace;
+*/
+
+/* NORMALIZACION: */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*mantiene ancho y alto a pesar de border y padding*/
+    list-style: none; /*elimina puntos en las listas*/
+    text-decoration: none; /*elimina el subrayado en los enlaces*/
+    color: white;
+    font-family: "Nova Mono", monospace;
+}
+
+/* body{
+    background-color: black; TODO: cambiar color de fondo*/
+
+header{
+    position: fixed; /*Fija el header en la parte superior*/
+    right: 0;
+    top:  0;
+    z-index: 100; /*Hace que el header se muestre por encima*/
+    width: 100%;
+    display: flex; /*hace que los elementos se alineen horizontalmente*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 800;
+}
+.navbar{
+    display: flex; /*hace que los elementos se alineen horizontalmente*/
+}
+
+.navbar a{
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 300;
+    border-bottom: 2px solid transparent; /*subrayado transparente*/
+    transition: all .5s ease;
+}
+
+.navbar a:hover{
+    border-bottom: 2px solid white;
+}
+
+#menu-icon{
+    display: none; /*Permitir que el boton solo sea visible al colapsar la pagina horizontalmente */
+}
+#menu-icon{
+    font-size: 35px;
+    z-index: 101;
+    cursor: pointer;
+}
+
+#menu-toggle{
+    display: none; /*Nunca mostrar el checkbox*/
+}
+
+#menu-action{
+    display: none; 
+}
+
+.hero{
+    height: 100vh;
+    width: 100vw;
+    min-height: 100wh;
+    background: linear-gradient(154.41deg, #000814 0%, #001d3d 25%, #003566 75%); /* fondo en gradiente de color*/
+    position: relative; /*Posiicon relativa al contenedor (permite usar top, botton, left y right)*/
+    display: grid;/*Para dividir en columnas*/
+    grid-template-columns: 1fr 1fr;/*Dos columnas*/
+    align-items: center;/*Para alinear verticalmente al centro*/
+    gap: 2rem;/*Espacio entre columnas*/
+}
+
+section{
+    padding: 0 7%;
+}
+
+.hero-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h4{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-text h1{
+    font-family: "M PLUS Code Latin", monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text p{
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-img img{
+    width: 400px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 2s linear;
+}
+
+.hero-img img:hover{
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text a{
+    display: inline-block;
+    background-color: #001d3d;
+    border: 1px solid transparent;
+    padding: 15px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+    margin-right: 10px;
+}
+
+.hero-text a:hover{
+    background-color: #000814;
+    border: 1px solid whitesmoke;
+    transform: translateX(8px);
+}
+
+.hero-text a.github div{
+    margin-right: 3px;
+}
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.icons i:hover{
+    color: #000814;
+    transform: translateY(-5px);
+}
+
+.scrolldown{
+    position: absolute;
+    bottom: 6%;
+    right: 6%;
+}
+
+.scrolldown i{
+    display: block;
+    font-size: 50px;
+    transition: all .5s ease;
+}
+
+.scrolldown i:hover{
+    transform: translateY(5px);
+}
+
+/*Media queries para que la web sea responsive */
+
+@media (max-width: 992px){
+    .section{
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text{
+        padding-top: 0;
+    }
+
+    .hero-img{
+        text-align: center;  
+    }
+
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p{
+        font-size: 70%;
+    }
+
+    .scrolldown{
+        display: none;
+    }
+
+    .icons{
+        display: none;
+    }
+}
+
+@media (max-width: 798px) {
+
+    #menu-action{
+        display: block;
+    }
+
+    #menu-icon{
+        display: block;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img{
+        margin: 0;
+    }
+
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: #000814a2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .5s ease;
+    }
+
+    .navbar a{
+        display: block;
+        margin: 7px 0 0 7px;
+    }
+
+    #menu-toggle:checked + label.menu-action + ul{
+        right: 0;
+    }
+}
